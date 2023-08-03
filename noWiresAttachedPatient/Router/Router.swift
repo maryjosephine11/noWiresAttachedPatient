@@ -14,11 +14,17 @@ enum Screens: NBScreen {
     case signUpCont
     case setPIN
     case logIn
+    case setName
+    case setBio
+    case setProvider
+    case setMedication
 }
 
 final class Router: ObservableObject {
     
     @Published var path: [Screens] = []
+    @State var nameInput: String = ""
+
     
     @ViewBuilder
     func route(to screen: Screens) -> some View {
@@ -33,6 +39,14 @@ final class Router: ObservableObject {
             PinView()
         case .logIn:
             LogInView()
+        case .setName:
+            SetNameView()
+        case .setBio:
+            SetBioView(nameInput: $nameInput)
+        case .setProvider:
+            SetProviderView(nameInput: $nameInput)
+        case .setMedication:
+            SetUpMedicationView(nameInput: $nameInput)
         }
     }
 }

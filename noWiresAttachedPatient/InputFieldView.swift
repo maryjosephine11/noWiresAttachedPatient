@@ -47,8 +47,13 @@ struct NumFieldView: View {
                 .frame(width: 276, height: 32)
                 .foregroundColor(Color("PinColor1"))
             
-            Image("InfoSeeker")
         }
+        .overlay(
+            HStack {
+                Spacer().frame(width: 255)
+                Image("InfoSeeker")
+            }
+        )
     }
     
     
@@ -172,10 +177,10 @@ struct SearchInfoIconView: View {
     @State var valueInfoFour: String = ""
     
     //return PinFieldView(dataOne: $dataOne, title: "PIN")
-    //return NumFieldView(dataTwo: $dataTwo, title: "Recovery Phone Number")
+    return NumFieldView(dataTwo: $dataTwo, title: "Recovery Phone Number")
     //return PersonalInfoView(valueInfo: $valueInfo, title: "Date of Birth", stringFormat: "MM/DD/YY")
     //return PersonalSeekerView(valueInfoTwo: $valueInfoTwo, title: "Sex", stringFormat: "M/F/Other")
     //return PersonalInfoTwoView(valueInfoThree: $valueInfoThree, title: "Height")
-    return SearchInfoIconView(valueInfoFour: $valueInfoFour, title: "Location", stringFormat: "Zip Code/ City, State")
+    //return SearchInfoIconView(valueInfoFour: $valueInfoFour, title: "Location", stringFormat: "Zip Code/ City, State")
     
 }

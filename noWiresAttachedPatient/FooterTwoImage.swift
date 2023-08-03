@@ -15,7 +15,7 @@ struct FooterTwoImage: View {
             .aspectRatio(2, contentMode: .fit)
             .frame(minHeight: 80, maxHeight: .infinity, alignment: .bottom)
             .edgesIgnoringSafeArea(.bottom)
-            .offset(y: 10)
+            .offset(y: 55)
             //.safeAreaInset(edge: .bottom, content: <#() -> _#>)
         
         //Spacer().frame(height: 0)

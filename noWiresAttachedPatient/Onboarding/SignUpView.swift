@@ -6,23 +6,27 @@
 //
 
 import SwiftUI
+import Navigattie
 
-struct SignUpView: View {
-    @EnvironmentObject private var router: Router
+struct SignUpView: NavigatableView {
     
     var body: some View {
         VStack {
             
             ZStack {
-                VStack{
+                
+                VStack {
+                    
                     HeaderOneImage()
                 }
+                
                 RoundedRectangle(cornerRadius: 40)
                     .fill(.white)
                     .frame(width: 477, height: 450)
                     .position(x:200, y: 360)
                 
                 VStack {
+                    
                     Spacer().frame(height: 203)
                     
                     Text("Sign Up")
@@ -51,25 +55,20 @@ struct SignUpView: View {
                     Spacer().frame(height: 50)
                     
                     Button("Generate Patient ID") {
-                        withAnimation {
-                            router.path.append(.signUpCont)
-                        }
+                        SignUpContView().push(with: .horizontalSlide)
                     }
                     .buttonStyle(SecureLogButtonStyle())
                     
-                    
                 }
-                
-                
+                                
             }
             
             ZStack(alignment: .custom){
+                
                 FooterImage()
                 
                 Button("Already Have an Account? Log In") {
-                    withAnimation {
-                        router.path.append(.logIn)
-                    }
+                    LogInView().push(with: .horizontalSlide)
                 }
                 .buttonStyle(LogInButtonStyle())
                 .alignmentGuide(VerticalAlignment.custom)
@@ -88,6 +87,5 @@ struct SignUpView: View {
 
 #Preview {
     SignUpView()
-        .environmentObject(Router())
 }
 

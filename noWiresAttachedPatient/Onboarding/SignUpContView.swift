@@ -6,25 +6,29 @@
 //
 
 import SwiftUI
+import Navigattie
 
-struct SignUpContView: View {
-    @EnvironmentObject private var router: Router
+struct SignUpContView: NavigatableView {
     
     var pid: String = "#SAMPLEPID00"
 
-    
     var body: some View {
         VStack {
+            
             ZStack {
-                VStack{
+                
+                VStack {
+                    
                     HeaderOneImage()
                 }
+                
                 RoundedRectangle(cornerRadius: 40)
                     .fill(.white)
                     .frame(width: 477, height: 450)
                     .position(x:200, y: 360)
                 
                 VStack {
+                    
                     Spacer().frame(height: 203)
                     
                     Text("Sign Up")
@@ -46,7 +50,7 @@ struct SignUpContView: View {
                     
                     Spacer().frame(height: 30)
                     
-                    // randomly generated patient number
+                    // in real app, will be randomly generated patient number
                     Text(pid)
                         .font(.system(size: 22))
                         .opacity(0.7)
@@ -54,25 +58,20 @@ struct SignUpContView: View {
                     Spacer().frame(height: 50)
                     
                     Button("Continue") {
-                        withAnimation {
-                            router.path.append(.setPIN)
-                        }
+                        PinView().push(with: .horizontalSlide)
                     }
                     .buttonStyle(SecureLogButtonStyle())
                     
-                    
                 }
                     
-                
             }
             
             ZStack(alignment: .custom){
+                
                 FooterImage()
                 
                 Button("Already Have an Account? Log In") {
-                    withAnimation {
-                        router.path.append(.logIn)
-                    }
+                    LogInView().push(with: .horizontalSlide)
                 }
                 .buttonStyle(LogInButtonStyle())
                 .alignmentGuide(VerticalAlignment.custom)
@@ -88,5 +87,4 @@ struct SignUpContView: View {
 
 #Preview {
     SignUpContView()
-        .environmentObject(Router())
 }

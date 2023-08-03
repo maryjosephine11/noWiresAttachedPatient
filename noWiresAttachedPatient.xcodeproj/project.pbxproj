@@ -29,6 +29,8 @@
 		2D7C9CEF2A7B1C3A00F8A0BC /* providerData.json in Resources */ = {isa = PBXBuildFile; fileRef = 2D7C9CEE2A7B1C3A00F8A0BC /* providerData.json */; };
 		2D7C9CF12A7B20C400F8A0BC /* ProviderRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D7C9CF02A7B20C400F8A0BC /* ProviderRow.swift */; };
 		2D7C9CF32A7B4C2200F8A0BC /* CheckBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D7C9CF22A7B4C2200F8A0BC /* CheckBoxView.swift */; };
+		2D7C9CF72A7BA06B00F8A0BC /* SetUpMedicationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D7C9CF62A7BA06B00F8A0BC /* SetUpMedicationView.swift */; };
+		2D7C9CFA2A7C011B00F8A0BC /* Navigattie in Frameworks */ = {isa = PBXBuildFile; productRef = 2D7C9CF92A7C011B00F8A0BC /* Navigattie */; };
 		2DA6E5D52A7298F100598F0C /* noWiresAttachedPatientApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA6E5D42A7298F100598F0C /* noWiresAttachedPatientApp.swift */; };
 		2DA6E5D92A7298F500598F0C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2DA6E5D82A7298F500598F0C /* Assets.xcassets */; };
 		2DA6E5DC2A7298F500598F0C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2DA6E5DB2A7298F500598F0C /* Preview Assets.xcassets */; };
@@ -58,6 +60,7 @@
 		2D7C9CEE2A7B1C3A00F8A0BC /* providerData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = providerData.json; sourceTree = "<group>"; };
 		2D7C9CF02A7B20C400F8A0BC /* ProviderRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderRow.swift; sourceTree = "<group>"; };
 		2D7C9CF22A7B4C2200F8A0BC /* CheckBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxView.swift; sourceTree = "<group>"; };
+		2D7C9CF62A7BA06B00F8A0BC /* SetUpMedicationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetUpMedicationView.swift; sourceTree = "<group>"; };
 		2DA6E5D12A7298F100598F0C /* noWiresAttachedPatient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = noWiresAttachedPatient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DA6E5D42A7298F100598F0C /* noWiresAttachedPatientApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = noWiresAttachedPatientApp.swift; sourceTree = "<group>"; };
 		2DA6E5D82A7298F500598F0C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -71,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D7C9CFA2A7C011B00F8A0BC /* Navigattie in Frameworks */,
 				2D7C9CDC2A79356500F8A0BC /* NavigationBackport in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -111,6 +115,7 @@
 				2D7C9CDE2A7952ED00F8A0BC /* SetNameView.swift */,
 				2D7C9CE22A79744200F8A0BC /* SetBioView.swift */,
 				2D7C9CE62A79E96600F8A0BC /* SetProviderView.swift */,
+				2D7C9CF62A7BA06B00F8A0BC /* SetUpMedicationView.swift */,
 			);
 			path = Welcome;
 			sourceTree = "<group>";
@@ -201,6 +206,7 @@
 			name = noWiresAttachedPatient;
 			packageProductDependencies = (
 				2D7C9CDB2A79356500F8A0BC /* NavigationBackport */,
+				2D7C9CF92A7C011B00F8A0BC /* Navigattie */,
 			);
 			productName = noWiresAttachedPatient;
 			productReference = 2DA6E5D12A7298F100598F0C /* noWiresAttachedPatient.app */;
@@ -232,6 +238,7 @@
 			mainGroup = 2DA6E5C82A7298F100598F0C;
 			packageReferences = (
 				2D7C9CDA2A79356500F8A0BC /* XCRemoteSwiftPackageReference "NavigationBackport" */,
+				2D7C9CF82A7C011B00F8A0BC /* XCRemoteSwiftPackageReference "Navigattie" */,
 			);
 			productRefGroup = 2DA6E5D22A7298F100598F0C /* Products */;
 			projectDirPath = "";
@@ -265,6 +272,7 @@
 				2D7C9CD22A784E5C00F8A0BC /* SessionManager.swift in Sources */,
 				2D7C9CDF2A7952ED00F8A0BC /* SetNameView.swift in Sources */,
 				2D7C9CC82A73E4AD00F8A0BC /* LogInView.swift in Sources */,
+				2D7C9CF72A7BA06B00F8A0BC /* SetUpMedicationView.swift in Sources */,
 				2D7C9CE12A79531700F8A0BC /* HeaderTwoImage.swift in Sources */,
 				2D7C9CC42A73E24600F8A0BC /* SignUpView.swift in Sources */,
 				2D139A282A7362E1006FE4C6 /* HeaderOneImage.swift in Sources */,
@@ -498,6 +506,14 @@
 				minimumVersion = 0.9.0;
 			};
 		};
+		2D7C9CF82A7C011B00F8A0BC /* XCRemoteSwiftPackageReference "Navigattie" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Mijick/Navigattie";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.3.2;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -505,6 +521,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 2D7C9CDA2A79356500F8A0BC /* XCRemoteSwiftPackageReference "NavigationBackport" */;
 			productName = NavigationBackport;
+		};
+		2D7C9CF92A7C011B00F8A0BC /* Navigattie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2D7C9CF82A7C011B00F8A0BC /* XCRemoteSwiftPackageReference "Navigattie" */;
+			productName = Navigattie;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Navigattie
 
 struct SecureLogButtonStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
@@ -41,26 +42,26 @@ struct ForgotPinButtonStyle: ButtonStyle {
     }
 }
 
-struct LogInView: View {
-    @State private var startedAction: Int? = 0
-    @State private var signUpAction: Int? = 0
+struct LogInView: NavigatableView {
     @State private var pinInput: String = ""
-
-    @EnvironmentObject private var router: Router
     
     var body: some View {
         VStack {
-            //HeaderOneImage()
+            
             ZStack {
-                VStack{
+                
+                VStack {
+                    
                     HeaderOneImage()
                 }
+                
                 RoundedRectangle(cornerRadius: 40)
                     .fill(.white)
                     .frame(width: 477, height: 450)
                     .position(x:200, y: 360)
                 
                 VStack {
+                    
                     Spacer().frame(height: 203)
                     
                     Text("Sign In")
@@ -77,6 +78,7 @@ struct LogInView: View {
                     PinFieldView(dataOne: $pinInput, title: "PIN")
 
                     ZStack {
+                        
                         Button("Forgot Pin", action: {
                             print("Button action")
                         })
@@ -89,7 +91,7 @@ struct LogInView: View {
                     Spacer().frame(height: 70)
                     
                     Button("Secure Login"){
-                        
+                        /// TO - DO: add action to navigate to profile home-page
                     }
                     .buttonStyle(SecureLogButtonStyle())
                     
@@ -103,9 +105,7 @@ struct LogInView: View {
                 FooterImage()
                 
                 Button("Don't Have an Account? Sign Up"){
-                    withAnimation {
-                        router.path.append(.signUp)
-                    }
+                    SignUpView().push(with: .horizontalSlide)
                 }
                 .buttonStyle(LogInButtonStyle())
                 .alignmentGuide(VerticalAlignment.custom)
@@ -122,5 +122,4 @@ struct LogInView: View {
 
 #Preview {
     LogInView()
-        .environmentObject(Router())
 }

@@ -8,6 +8,15 @@
         "revision" : "fb860a404f8c0aabeca1016400e41ece5363a369",
         "version" : "0.9.0"
       }
+    },
+    {
+      "identity" : "navigattie",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Mijick/Navigattie",
+      "state" : {
+        "revision" : "fb21ec8d43f63e534368ede14e5561735d99df45",
+        "version" : "0.3.2"
+      }
     }
   ],
   "version" : 2

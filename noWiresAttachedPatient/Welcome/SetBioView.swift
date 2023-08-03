@@ -6,8 +6,9 @@
 //
 
 import SwiftUI
+import Navigattie
 
-struct SetBioView: View {
+struct SetBioView: NavigatableView {
     @Binding var nameInput: String
     @State var valueInfo: String = ""
     @State var valueInfoTwo: String = ""
@@ -15,10 +16,12 @@ struct SetBioView: View {
     @State var weight: String = ""
     
     var body: some View {
-        VStack{
+        VStack {
             
             ZStack {
+                
                 VStack {
+                    
                     HeaderTwoImage()
                 }
                 
@@ -29,28 +32,30 @@ struct SetBioView: View {
                     .offset(y: 130)
                 
                 VStack {
+                    
                     Spacer().frame(height: 230)
                     
                     Text("Hello, \(nameInput)")
                         .font(.system(size: 30))
                     
-                    Spacer().frame(height: 60)
+                    Spacer().frame(height: 20)
                     
                     Text("Please enter the following...")
                         .font(.system(size: 22))
                         .multilineTextAlignment(.center)
                     
-                    Spacer().frame(height: 30)
+                    Spacer().frame(height: 60)
                     
                     PersonalInfoView(valueInfo: $valueInfo, title: "Date of Birth", stringFormat: "MM/DD/YY")
                     
-                    Spacer().frame(height: 40)
+                    Spacer().frame(height: 60)
                     
                     PersonalSeekerView(valueInfoTwo: $valueInfoTwo, title: "Sex", stringFormat: "M/F/Other")
                     
-                    Spacer().frame(height: 40)
+                    Spacer().frame(height: 60)
                     
                     HStack {
+                        
                         PersonalInfoTwoView(valueInfoThree: $height, title: "Height")
                        
                         Spacer().frame(width: 34)
@@ -58,17 +63,22 @@ struct SetBioView: View {
                         PersonalInfoTwoView(valueInfoThree: $weight, title: "Weight")
                     }
                     
-                    Spacer().frame(height: 70)
+                    Spacer().frame(height: 75)
                     
                     Button("Continue") {
-                        withAnimation {
-                            //router.path.append(.setPIN)
-                        }
+                        SetProviderView(nameInput: $nameInput).push(with: .horizontalSlide)
                     }
                     .buttonStyle(SecureLogButtonStyle())
                     
-                    FooterTwoImage()
+                    Spacer().frame(height: 10)
+                    
+                    
+                    
+                    
                 }
+                
+                FooterTwoImage()
+                    .offset(y: 95)
                 
             }
         }
@@ -78,7 +88,5 @@ struct SetBioView: View {
 }
 
 #Preview {
-    //@State var : String = ""
-    
     SetBioView(nameInput: .constant("Sam"))
 }

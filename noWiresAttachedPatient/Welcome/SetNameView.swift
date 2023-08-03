@@ -6,8 +6,9 @@
 //
 
 import SwiftUI
+import Navigattie
 
-struct SetNameView: View {
+struct SetNameView: NavigatableView {
     @State var nameInput: String = ""
     
     var body: some View {
@@ -24,7 +25,8 @@ struct SetNameView: View {
                     .frame(height: 745)
                     .offset(y: 130)
                 
-                VStack{
+                VStack {
+                    
                     Spacer().frame(height: 230)
                     
                     Text("Hello,")
@@ -43,9 +45,7 @@ struct SetNameView: View {
                     Spacer().frame(height: 50)
                     
                     Button("Continue") {
-                        withAnimation {
-                            //router.path.append(.setPIN)
-                        }
+                        SetBioView(nameInput: $nameInput).push(with: .horizontalSlide)
                     }
                     .buttonStyle(SecureLogButtonStyle())
                     

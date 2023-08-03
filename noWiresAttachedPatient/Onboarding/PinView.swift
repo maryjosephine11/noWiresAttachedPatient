@@ -6,29 +6,30 @@
 //
 
 import SwiftUI
+import Navigattie
 
-struct PinView: View {
-    @State private var startedAction: Int? = 0
-    @State private var logInAction: Int? = 0
+struct PinView: NavigatableView {
+
     @State private var pinInput: String = ""
     @State private var phoneInput: String = ""
     
-    @EnvironmentObject private var router: Router
-
-    
     var body: some View {
         VStack {
-            //HeaderOneImage()
+            
             ZStack {
-                VStack{
+                
+                VStack {
+                    
                     HeaderOneImage()
                 }
+                
                 RoundedRectangle(cornerRadius: 40)
                     .fill(.white)
                     .frame(width: 477, height: 450)
                     .position(x:200, y: 360)
                 
                 VStack {
+                    
                     Spacer().frame(height: 203)
                     
                     Text("Sign Up")
@@ -49,29 +50,24 @@ struct PinView: View {
                     Spacer().frame(height: 70)
                     
                     Button("Secure Login"){
-                        
+                        SetNameView().push(with: .horizontalSlide)
                     }
                     .buttonStyle(SecureLogButtonStyle())
                     
-                    
                 }
                     
-                
             }
             
             ZStack(alignment: .custom){
+                
                 FooterImage()
                 
-                
                 Button("Already Have an Account? Log In"){
-                    withAnimation {
-                        router.path.append(.logIn)
-                    }
+                    LogInView().push(with: .horizontalSlide)
                 }
                 .buttonStyle(LogInButtonStyle())
                 .alignmentGuide(VerticalAlignment.custom)
                 { d in d[.bottom] }
-                
                 
             }
         }

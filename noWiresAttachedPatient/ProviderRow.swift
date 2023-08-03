@@ -15,6 +15,8 @@ struct ProviderRow: View {
     @Binding var width: CGFloat
     @Binding var height: CGFloat
     
+    @EnvironmentObject private var router: Router
+    
     var body: some View {
         VStack (spacing: -250){
             
@@ -33,6 +35,7 @@ struct ProviderRow: View {
                     .frame(width: 327)
                     .frame(height: 160)
                     .offset(y: 130)
+                
                 VStack {
                     //Spacer().frame(height: 230)
                     HStack {

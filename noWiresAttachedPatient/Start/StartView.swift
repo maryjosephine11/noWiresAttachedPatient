@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import NavigationBackport
+import Navigattie
 
 struct StartedButtonStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
@@ -37,45 +39,44 @@ struct LogInButtonStyle: ButtonStyle {
 }
 
 
-struct StartView: View {
-    
-    //@EnvironmentObject var session: SessionManager
-    @EnvironmentObject private var router: Router
-    
+struct StartView: NavigatableView {
+
     @State private var startedAction: Int? = 0
     @State private var logInAction: Int? = 0
     
     var body: some View {
-        VStack {
-            LogoImage()
-            ZStack(alignment: .custom){
-                FooterImage()
-                
-                VStack(alignment: .center) {
-                    Button("Get Started") {
-                        withAnimation {
-                            router.path.append(.signUp)
-                        }
-                    }
-                    .buttonStyle(StartedButtonStyle())
-                    .alignmentGuide(VerticalAlignment.custom)
-                                { d in d[.top] }
 
+            VStack {
+                
+                LogoImage()
+                
+                ZStack(alignment: .custom) {
+                    
+                    FooterImage()
+                    
+                    VStack(alignment: .center) {
+                        
+                        Button("Get Started") {
+                                SignUpView().push(with: .horizontalSlide)
+                        }
+                        .buttonStyle(StartedButtonStyle())
+                        .alignmentGuide(VerticalAlignment.custom)
+                        { d in d[.top] }
+                        
                         Button("Already Have an Account? Log In") {
-                            withAnimation {
-                                router.path.append(.logIn)
-                            }
+                            LogInView().push(with: .horizontalSlide)
                         }
-                            .buttonStyle(LogInButtonStyle())
+                        .buttonStyle(LogInButtonStyle())
+                    }
                 }
-            }
-
                 
-        }
+                
+            }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color("AppForegroundColor1")).ignoresSafeArea(.all)
     }
 }
+
 
 extension HorizontalAlignment {
     enum Custom: AlignmentID {
@@ -102,6 +103,5 @@ extension Alignment {
 
 #Preview {
     StartView()
-        .environmentObject(Router())
 }
 

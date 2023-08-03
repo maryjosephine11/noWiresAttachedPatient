@@ -6,8 +6,9 @@
 //
 
 import SwiftUI
+import Navigattie
 
-struct SetProviderView: View {
+struct SetProviderView: NavigatableView {
     @Binding var nameInput: String
     
     @State var checked: Bool = false
@@ -15,9 +16,8 @@ struct SetProviderView: View {
     @State var width: CGFloat = 16
     @State var height: CGFloat = 16
     
-    @State var valueInfoFour: String = ""
+    @State var valueInfoFour: String = ""    
     
-
     var body: some View {
         VStack {
             
@@ -30,9 +30,9 @@ struct SetProviderView: View {
                     .offset(y: 130)
                 
                 VStack {
+                    
                 Spacer().frame(height: 0.01)
                         .edgesIgnoringSafeArea(.top)
-                        //.ignoresSafeArea()
                     
                     Text("Hello, \(nameInput)")
                         .font(.system(size: 30))
@@ -53,7 +53,9 @@ struct SetProviderView: View {
                         .font(.system(size: 24))
                         .fontWeight(.semibold)
                         .frame(width: 327, alignment: .leading)
+                    
                     HStack {
+                        
                         Text("Showing results from 'location'")
                             .font(.system(size: 14))
                             .lineLimit(1)
@@ -80,11 +82,10 @@ struct SetProviderView: View {
                     Spacer().frame(height: 10)
                     
                     Button {
-                        withAnimation {
-                            //router.path.append(.setPIN)
-                        }
+                        SetUpMedicationView(nameInput: $nameInput).push(with: .horizontalSlide)
                     } label: {
                         VStack {
+                            
                             Spacer().frame(height: 18)
                             
                             Text("Continue")
@@ -100,9 +101,9 @@ struct SetProviderView: View {
                     }
                     .buttonStyle(SecureLogButtonStyle())
                     
-                    //FooterTwoImage()
                 }
                 
+                FooterTwoImage()
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
