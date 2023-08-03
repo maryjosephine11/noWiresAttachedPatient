@@ -15,21 +15,22 @@ struct ProviderRow: View {
     @Binding var width: CGFloat
     @Binding var height: CGFloat
     
-    @EnvironmentObject private var router: Router
     
     var body: some View {
+        
         VStack (spacing: -250){
             
             HStack {
+                
                 Text(provider.location)
                     .foregroundStyle(Color("LocationColor1"))
                     .font(.system(size: 14))
                     .frame(width: 327, alignment: .topLeading)
                 
-                //Spacer().frame(width: 11)
             }
             
             ZStack {
+                
                 RoundedRectangle(cornerRadius: 16)
                     .fill(Color("ProviderCapsuleColor"))
                     .frame(width: 327)
@@ -37,10 +38,14 @@ struct ProviderRow: View {
                     .offset(y: 130)
                 
                 VStack {
-                    //Spacer().frame(height: 230)
+                    
+
                     HStack {
+                        
                         Spacer().frame(width: 25)
+                        
                         ZStack{
+                            
                             UnevenRoundedRectangle(topLeadingRadius: 16, bottomLeadingRadius: 16)
                                 .fill(Color("PicBkgd"))
                                 .frame(width: 134)
@@ -48,6 +53,7 @@ struct ProviderRow: View {
                                 .offset(y: 130)
                             
                             VStack {
+                                
                                 Spacer().frame(height: 280)
                                 
                                 provider.image
@@ -61,9 +67,11 @@ struct ProviderRow: View {
                         Spacer().frame(width: 13)
                         
                         VStack(alignment: .leading) {
+                            
                             Spacer().frame(height: 230)
                             
                             HStack {
+                                
                                 Spacer().frame(width: 160)
                                 
                                 CheckBoxView(checked: $checked, trimVal: $trimVal, width: $width, height: $height)
@@ -78,9 +86,9 @@ struct ProviderRow: View {
                                         }
                                     }
                             }
-                                //.frame(alignment: .topTrailing)
                             
                             HStack {
+                                
                                 Text(provider.name)
                                     .lineLimit(1)
                                     .font(.system(size: 20))
@@ -90,6 +98,7 @@ struct ProviderRow: View {
                             Spacer().frame(height: 5)
                             
                             HStack {
+                                
                                 Text(provider.position)
                                     .lineLimit(1)
                                     .font(.system(size: 10))
@@ -99,6 +108,7 @@ struct ProviderRow: View {
                             Spacer().frame(height: 5)
                             
                             HStack {
+                                
                                 Text(provider.bio)
                                     .font(.system(size: 10))
                                     .foregroundStyle(Color("BioTextColor"))
@@ -110,9 +120,6 @@ struct ProviderRow: View {
                             
                             
                         }
-                        //.frame(width: 40, alignment: .leading)
-                        
-                        
                         
                     }
                 }
