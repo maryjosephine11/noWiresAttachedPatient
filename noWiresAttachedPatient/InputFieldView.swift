@@ -99,10 +99,15 @@ struct PersonalSeekerView: View {
                 .frame(width: 276, height: 32)
                 .disableAutocorrection(true)
                 .foregroundColor(Color("PinColor1"))
-            
-            Image("InfoSeeker")
         }
+        .overlay(
+            HStack {
+                Spacer().frame(width: 255)
+                Image("InfoSeeker")
+            }
+        )
     }
+        
 }
 
 // text heavy weight simple view for alphanumeric field
@@ -129,6 +134,33 @@ struct PersonalInfoTwoView: View {
     
 }
 
+//// search field w/magnifying glass icon
+struct SearchInfoIconView: View {
+    @Binding var valueInfoFour: String
+    var title: String
+    var stringFormat: String
+    
+    var body: some View {
+        HStack {
+            TextField(title + " " + stringFormat ?? "Search", text: $valueInfoFour)
+                .keyboardType(.alphabet)
+                .padding(.horizontal, 40)
+                .font(.system(size: 18))
+                .frame(width: 327, height: 55, alignment: .center)
+                .italic()
+               .background(Color("SearchBarFill"), in: RoundedRectangle(cornerRadius: 29))
+               .overlay(
+                HStack {
+                    Image("SearchIcon")
+                        .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                        .padding(.leading, 8)
+                }
+               )
+        }
+    }
+    
+}
+
 
 
 #Preview {
@@ -137,11 +169,13 @@ struct PersonalInfoTwoView: View {
     @State var valueInfo: String = ""
     @State var valueInfoTwo: String = ""
     @State var valueInfoThree: String = ""
+    @State var valueInfoFour: String = ""
     
     //return PinFieldView(dataOne: $dataOne, title: "PIN")
     //return NumFieldView(dataTwo: $dataTwo, title: "Recovery Phone Number")
     //return PersonalInfoView(valueInfo: $valueInfo, title: "Date of Birth", stringFormat: "MM/DD/YY")
     //return PersonalSeekerView(valueInfoTwo: $valueInfoTwo, title: "Sex", stringFormat: "M/F/Other")
-    return PersonalInfoTwoView(valueInfoThree: $valueInfoThree, title: "Height")
+    //return PersonalInfoTwoView(valueInfoThree: $valueInfoThree, title: "Height")
+    return SearchInfoIconView(valueInfoFour: $valueInfoFour, title: "Location", stringFormat: "Zip Code/ City, State")
     
 }

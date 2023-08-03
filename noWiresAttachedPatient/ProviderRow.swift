@@ -18,15 +18,20 @@ struct ProviderRow: View {
     var body: some View {
         VStack (spacing: -250){
             
-            Text(provider.location)
-                .foregroundStyle(Color("LocationColor1"))
-                .font(.system(size: 14))
+            HStack {
+                Text(provider.location)
+                    .foregroundStyle(Color("LocationColor1"))
+                    .font(.system(size: 14))
+                    .frame(width: 327, alignment: .topLeading)
+                
+                //Spacer().frame(width: 11)
+            }
             
             ZStack {
                 RoundedRectangle(cornerRadius: 16)
                     .fill(Color("ProviderCapsuleColor"))
                     .frame(width: 327)
-                    .frame(height: 170)
+                    .frame(height: 160)
                     .offset(y: 130)
                 VStack {
                     //Spacer().frame(height: 230)
@@ -36,11 +41,11 @@ struct ProviderRow: View {
                             UnevenRoundedRectangle(topLeadingRadius: 16, bottomLeadingRadius: 16)
                                 .fill(Color("PicBkgd"))
                                 .frame(width: 134)
-                                .frame(height: 170)
+                                .frame(height: 160)
                                 .offset(y: 130)
                             
                             VStack {
-                                Spacer().frame(height: 290)
+                                Spacer().frame(height: 280)
                                 
                                 provider.image
                                     .resizable()
@@ -114,5 +119,5 @@ struct ProviderRow: View {
 }
 
 #Preview {
-    ProviderRow(provider: providers[0], checked: .constant(true), trimVal: .constant(1), width: .constant(16), height: .constant(16))
+    ProviderRow(provider: providers[1], checked: .constant(true), trimVal: .constant(1), width: .constant(16), height: .constant(16))
 }
