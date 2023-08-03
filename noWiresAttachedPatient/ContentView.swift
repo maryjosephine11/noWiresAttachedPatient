@@ -2,20 +2,14 @@
 //  ContentView.swift
 //  noWiresAttachedPatient
 //
-//  Created by MJ Ajiduah on 7/27/23.
+//  Created by MJ Ajiduah on 7/31/23.
 //
 
 import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
+        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
     }
 }
 

@@ -1,0 +1,18 @@
+[
+    {
+        "name": "Dr. Nina Mizrahi",
+        "position": "Heart Specialist - Surgeon",
+        "bio": "Dr. Nina Mizrahi is a cardiologist and nationally recognized pioneer in women's heart health.",
+        "id": 1,
+        "location": "From Weill Cornell Medical Center",
+        "imageName": "DrNinaMizrahi"
+    },
+    {
+        "name": "Dr. Peter Haddad",
+        "position": "Heart Specialist - Surgeon",
+        "bio": "Dr. Peter Haddad is a cardiologist and nationally recognized pioneer in women's heart health.",
+        "id": 2,
+        "location": "From Mount Sinai Hospital",
+        "imageName": "DrPeterHaddad"
+    }
+]
